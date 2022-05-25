@@ -57,7 +57,7 @@ export default function Calculator() {
     if (calculate(obj, X).total && X === '=') {
       setOutPutString(calculate(obj, X).total);
       setNext(null);
-      setTotal(null);
+      setTotal(calculate(obj, X).total);
       SetNextString(false);
     }
   };
