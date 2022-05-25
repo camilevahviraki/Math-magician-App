@@ -1,103 +1,96 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import '../styles/Calculator.css';
 import calculate from '../logic/calculate';
 
-export default class Calculator extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      outputStr: '0',
-      nextString: false,
-      total: null,
-      next: null,
-      operation: null,
+export default function Calculator() {
+  const [outputStr, setOutPutString] = useState('0');
+  const [nextString, SetNextString] = useState(false);
+  const [total, setTotal] = useState(null);
+  const [next, setNext] = useState(null);
+  const [operation, setOperation] = useState(null);
+
+  const dropValue = (e) => {
+    const X = e.target.value.toString();
+
+    if (X === '-' || X === '+' || X === '÷' || X === 'x' || X === '%') {
+      SetNextString(!nextString);
+      setOperation(X);
+      setOutPutString('0');
+    } else if ((X.match(/^[0-9]+$/) !== null && nextString === false) || X === '.') {
+      if (total === null) {
+        setTotal(X);
+        setOutPutString(X);
+      } else {
+        setTotal(`${total}${e.target.value}`);
+        setOutPutString(total + X);
+      }
+    } else if ((X.match(/^[0-9]+$/) !== null && nextString === true) || X === '.') {
+      if (next === null) {
+        setNext(X);
+        setOutPutString(X);
+      } else {
+        setNext(`${next}${e.target.value}`);
+        setOutPutString(next + X);
+      }
+    } else if (X === 'AC') {
+      setOutPutString('0');
+      setTotal(null);
+      setNext(null);
+      setOperation(null);
+      SetNextString(false);
+    } else if (X === '+/-') {
+      if (next !== null) {
+        setNext(`${-1 * parseInt(next, 10)}`);
+        setOutPutString(`${-1 * parseInt(outputStr, 10)}`);
+      } else {
+        setTotal(`${-1 * parseInt(total, 10)}`);
+        setOutPutString(`${-1 * parseInt(outputStr, 10)}`);
+      }
+    }
+
+    const obj = {
+      total,
+      next,
+      operation,
     };
-  }
 
-dropValue = (e) => {
-  const X = e.target.value.toString();
-
-  if (X === '-' || X === '+' || X === '÷' || X === 'x' || X === '%') {
-    this.setState({ nextString: !this.state.nextString });
-    this.setState({ operation: e.target.value });
-    this.setState({ outputStr: '0' });
-  } else if ((X.match(/^[0-9]+$/) !== null && this.state.nextString === false) || X === '.') {
-    if (this.state.total === null) {
-      this.setState({ total: X });
-      this.setState({ outputStr: X });
-    } else {
-      this.setState({ total: `${this.state.total}${e.target.value}` });
-      this.setState({ outputStr: this.state.total + X });
+    if (calculate(obj, X).total && X === '=') {
+      setOutPutString(calculate(obj, X).total);
+      setNext(null);
+      setTotal(calculate(obj, X).total);
+      SetNextString(false);
     }
-  } else if ((X.match(/^[0-9]+$/) !== null && this.state.nextString === true) || X === '.') {
-    if (this.state.next === null) {
-      this.setState({ next: X });
-      this.setState({ outputStr: X });
-    } else {
-      this.setState({ next: `${this.state.next}${e.target.value}` });
-      this.setState({ outputStr: this.state.next + X });
-    }
-  } else if (X === 'AC') {
-    this.setState({ outputStr: '0' });
-    this.setState({ total: null });
-    this.setState({ next: null });
-    this.setState({ operation: null });
-    this.setState({ nextString: false });
-  } else if (X === '+/-') {
-    if (this.state.next !== null) {
-      this.setState({ next: `${-1 * parseInt(this.state.next, 10)}` });
-      this.setState({ outputStr: `${-1 * parseInt(this.state.outputStr, 10)}` });
-    } else {
-      this.setState({ total: `${-1 * parseInt(this.state.total, 10)}` });
-      this.setState({ outputStr: `${-1 * parseInt(this.state.outputStr, 10)}` });
-    }
-  }
-
-  const obj = {
-    total: this.state.total,
-    next: this.state.next,
-    operation: this.state.operation,
   };
 
-  if (calculate(obj, X).total && X === '=') {
-    this.setState({ outputStr: calculate(obj, X).total });
-    this.setState({ total: null });
-    this.setState({ next: null });
-    this.setState({ nextString: false });
-  }
-}
-
-render() {
   return (
     <div className="mainCalculator">
       <div className="calculator">
-        <p className="screenClac">{this.state.outputStr}</p>
+        <p className="screenClac">{outputStr}</p>
         <div className="integers">
-          <button className="buttonInt" type="button" value="AC" onClick={this.dropValue}>AC</button>
-          <button className="buttonInt" type="button" value="+/-" onClick={this.dropValue}>+/-</button>
-          <button className="buttonInt" type="button" value="%" onClick={this.dropValue}>%</button>
-          <button className="buttonInt op" type="button" value="÷" onClick={this.dropValue}>÷</button>
-          <button className="buttonInt" type="button" value="7" onClick={this.dropValue}>7</button>
-          <button className="buttonInt" type="button" value="8" onClick={this.dropValue}>8</button>
-          <button className="buttonInt" type="button" value="9" onClick={this.dropValue}>9</button>
-          <button className="buttonInt op" type="button" value="x" onClick={this.dropValue}>x</button>
-          <button className="buttonInt" type="button" value="4" onClick={this.dropValue}>4</button>
-          <button className="buttonInt" type="button" value="5" onClick={this.dropValue}>5</button>
-          <button className="buttonInt" type="button" value="6" onClick={this.dropValue}>6</button>
-          <button className="buttonInt op" type="button" value="-" onClick={this.dropValue}>-</button>
-          <button className="buttonInt" type="button" value="1" onClick={this.dropValue}>1</button>
-          <button className="buttonInt" type="button" value="2" onClick={this.dropValue}>2</button>
-          <button className="buttonInt" type="button" value="3" onClick={this.dropValue}>3</button>
-          <button className="buttonInt op" type="button" value="+" onClick={this.dropValue}>+</button>
+          <button className="buttonInt" type="button" value="AC" onClick={dropValue}>AC</button>
+          <button className="buttonInt" type="button" value="+/-" onClick={dropValue}>+/-</button>
+          <button className="buttonInt" type="button" value="%" onClick={dropValue}>%</button>
+          <button className="buttonInt op" type="button" value="÷" onClick={dropValue}>÷</button>
+          <button className="buttonInt" type="button" value="7" onClick={dropValue}>7</button>
+          <button className="buttonInt" type="button" value="8" onClick={dropValue}>8</button>
+          <button className="buttonInt" type="button" value="9" onClick={dropValue}>9</button>
+          <button className="buttonInt op" type="button" value="x" onClick={dropValue}>x</button>
+          <button className="buttonInt" type="button" value="4" onClick={dropValue}>4</button>
+          <button className="buttonInt" type="button" value="5" onClick={dropValue}>5</button>
+          <button className="buttonInt" type="button" value="6" onClick={dropValue}>6</button>
+          <button className="buttonInt op" type="button" value="-" onClick={dropValue}>-</button>
+          <button className="buttonInt" type="button" value="1" onClick={dropValue}>1</button>
+          <button className="buttonInt" type="button" value="2" onClick={dropValue}>2</button>
+          <button className="buttonInt" type="button" value="3" onClick={dropValue}>3</button>
+          <button className="buttonInt op" type="button" value="+" onClick={dropValue}>+</button>
 
         </div>
         <div className="buttonsDown">
-          <button className="buttonInt" id="bigButton" type="button" value="0" onClick={this.dropValue}>0</button>
-          <button className="buttonInt" type="button" value="." onClick={this.dropValue}>.</button>
-          <button className="buttonInt op" type="button" value="=" onClick={this.dropValue}>=</button>
+          <button className="buttonInt" id="bigButton" type="button" value="0" onClick={dropValue}>0</button>
+          <button className="buttonInt" type="button" value="." onClick={dropValue}>.</button>
+          <button className="buttonInt op" type="button" value="=" onClick={dropValue}>=</button>
         </div>
       </div>
     </div>
   );
-}
 }

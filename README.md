@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Setup react
+# Math-magicien-app
 
-> This is a setup demo of a react-app, feel free to check it out.
+![](./public/Calculator.png)
 
 
 ## Built With
@@ -12,24 +12,14 @@
 
 ## Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To get a local copy up and running follow these simple example steps.
 
-### Available Scripts
-
-In the project directory, you can run:
-
-#### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-#### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- copy this link `https://github.com/camilevahviraki/Math-magician-App`.
+- get the directory that you want to clone the repository.
+- open the command prompt in this directory.
+- write `https://github.com/camilevahviraki/Math-magician-App`.
+- go to the repository folder in your command prompt `Math-magician-App`.
+- Open terminal in that folder and run `npm run start`.
 
 
 ## Authors
