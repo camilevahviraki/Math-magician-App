@@ -21,26 +21,21 @@ dropValue = (e) => {
     this.setState({ nextString: !this.state.nextString });
     this.setState({ operation: e.target.value });
     this.setState({ outputStr: '0' });
-    console.log('condition', 'A');
   } else if ((X.match(/^[0-9]+$/) !== null && this.state.nextString === false) || X === '.') {
     if (this.state.total === null) {
       this.setState({ total: X });
       this.setState({ outputStr: X });
-      console.log('condition', 'B');
     } else {
       this.setState({ total: `${this.state.total}${e.target.value}` });
       this.setState({ outputStr: this.state.total + X });
-      console.log('condition', 'C');
     }
   } else if ((X.match(/^[0-9]+$/) !== null && this.state.nextString === true) || X === '.') {
     if (this.state.next === null) {
       this.setState({ next: X });
       this.setState({ outputStr: X });
-      console.log('condition', 'D');
     } else {
       this.setState({ next: `${this.state.next}${e.target.value}` });
       this.setState({ outputStr: this.state.next + X });
-      console.log('condition', 'E');
     }
   } else if (X === 'AC') {
     this.setState({ outputStr: '0' });
@@ -48,16 +43,13 @@ dropValue = (e) => {
     this.setState({ next: null });
     this.setState({ operation: null });
     this.setState({ nextString: false });
-    console.log('condition', 'F');
   } else if (X === '+/-') {
     if (this.state.next !== null) {
       this.setState({ next: `${-1 * parseInt(this.state.next, 10)}` });
       this.setState({ outputStr: `${-1 * parseInt(this.state.outputStr, 10)}` });
-      console.log('condition', 'G');
     } else {
       this.setState({ total: `${-1 * parseInt(this.state.total, 10)}` });
       this.setState({ outputStr: `${-1 * parseInt(this.state.outputStr, 10)}` });
-      console.log('condition', 'H');
     }
   }
 
@@ -72,7 +64,6 @@ dropValue = (e) => {
     this.setState({ total: null });
     this.setState({ next: null });
     this.setState({ nextString: false });
-    console.log('condition', 'I');
   }
 }
 
