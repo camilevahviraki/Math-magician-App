@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Setup react
+# Math magician Calculator
 
-> This is a setup demo of a react-app, feel free to check it out.
+![](./public/Calculator.png)
 
 
 ## Built With
