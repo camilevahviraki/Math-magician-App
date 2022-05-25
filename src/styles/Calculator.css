@@ -54,3 +54,20 @@ button {
   min-width: 300px;
   max-width: 600px;
 }
+
+.screenClac {
+  width: calc(60vw - 4px);
+  min-width: 296px;
+  max-width: 596px;
+  border: 1px solid rgba(105, 105, 105, 0.521);
+  margin-top: 100px;
+  margin-bottom: 0;
+  height: 50px;
+  border-radius: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(49, 49, 49, 0.932);
+  text-align: right;
+  padding-right: 3px;
+}
