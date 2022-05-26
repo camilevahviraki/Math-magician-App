@@ -59,6 +59,7 @@ export default function Calculator() {
       setNext(null);
       setTotal(calculate(obj, X).total);
       SetNextString(false);
+      console.log('con', 'B');
     }
   };
 
