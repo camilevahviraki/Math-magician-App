@@ -2,7 +2,7 @@
 
 # Math-magicien-app
 
-![](./public/Calculator.png)
+![](./public/calculator-now.png)
 
 
 ## Built With
