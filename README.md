@@ -21,6 +21,9 @@ To get a local copy up and running follow these simple example steps.
 - go to the repository folder in your command prompt `Math-magician-App`.
 - Open terminal in that folder and run `npm run start`.
 
+## Live Link
+
+ [Type this link](https://camilevahviraki.github.io/Math-magician-App/) tosee the quick demo of the project.
 
 ## Authors
 

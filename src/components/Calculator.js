@@ -15,7 +15,6 @@ export default function Calculator() {
     if (X === '-' || X === '+' || X === '÷' || X === 'x' || X === '%') {
       SetNextString(!nextString);
       setOperation(X);
-      setOutPutString('0');
     } else if ((X.match(/^[0-9]+$/) !== null && nextString === false) || X === '.') {
       if (total === null) {
         setTotal(X);
@@ -85,12 +84,12 @@ export default function Calculator() {
           <button className="buttonInt" type="button" value="3" onClick={dropValue}>3</button>
           <button className="buttonInt op" type="button" value="+" onClick={dropValue}>+</button>
 
-        </div>
-        <div className="buttonsDown">
           <button className="buttonInt" id="bigButton" type="button" value="0" onClick={dropValue}>0</button>
           <button className="buttonInt" type="button" value="." onClick={dropValue}>.</button>
           <button className="buttonInt op" type="button" value="=" onClick={dropValue}>=</button>
+
         </div>
+        {/* <div className="buttonsDown"> </div> */}
       </div>
     </div>
   );

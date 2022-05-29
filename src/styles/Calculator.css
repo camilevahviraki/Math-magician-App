@@ -28,6 +28,9 @@ input {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   min-width: 300px;
   width: 100%;
+  row-gap: 5px;
+  column-gap: 5px;
+  padding-top: 5px;
 }
 
 button {
@@ -39,14 +42,27 @@ button {
   background-color: white;
 }
 
+button:active {
+  background-color: rgb(38, 39, 1);
+  color: white;
+  
+}
+
 .buttonsDown {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   width: 100%;
+  row-gap: 5px;
+  column-gap: 5px;
+  margin-top: 5px;
 }
 
 .op {
   background-color: rgb(226, 137, 2);
+}
+
+#bigButton {
+  grid-column-start: span 2;
 }
 
 .calculator {
