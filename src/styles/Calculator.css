@@ -7,30 +7,26 @@
   align-items: center;
 }
 
-input {
-  margin-top: 100px;
-  height: 50px;
-  min-width: 295px;
-  width: calc(60vw - 5px);
-  max-width: calc(595px);
-  border-radius: 0;
-  font-size: 20px;
-  font-weight: 600;
-  border: 1px solid rgba(0, 0, 0, 0.685);
-  color: white;
-  background-color: rgba(49, 49, 49, 0.932);
-  text-align: right;
-  padding-right: 3px;
+.calculator {
+  margin-top: 50px;
+  padding: 10px;
+  border: 1px solid rgb(41, 76, 99);
+  border-radius: 10px;
+  background-color: rgb(0, 17, 24);
+  position: relative;
 }
 
 .integers {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   min-width: 300px;
-  width: 100%;
+  max-width: 90vw;
+  width: 500px;
   row-gap: 5px;
   column-gap: 5px;
   padding-top: 5px;
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
 
 button {
@@ -40,12 +36,12 @@ button {
   font-weight: 600;
   font-size: 18px;
   background-color: white;
+  border-radius: 2px;
 }
 
 button:active {
-  background-color: rgb(38, 39, 1);
+  background-color: rgb(39, 49, 1);
   color: white;
-  
 }
 
 .buttonsDown {
@@ -65,18 +61,12 @@ button:active {
   grid-column-start: span 2;
 }
 
-.calculator {
-  width: 60vw;
-  min-width: 300px;
-  max-width: 600px;
-}
-
 .screenClac {
-  width: calc(60vw - 4px);
+  width: calc(500px - 4px);
   min-width: 296px;
-  max-width: 596px;
+  max-width: 90vw;
   border: 1px solid rgba(105, 105, 105, 0.521);
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 0;
   height: 50px;
   border-radius: 0;
@@ -86,4 +76,13 @@ button:active {
   background-color: rgba(49, 49, 49, 0.932);
   text-align: right;
   padding-right: 3px;
+}
+
+.logo {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
 }

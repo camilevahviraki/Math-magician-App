@@ -65,6 +65,7 @@ export default function Calculator() {
   return (
     <div className="mainCalculator">
       <div className="calculator">
+        <h3 className="logo">dropValue</h3>
         <p className="screenClac">{outputStr}</p>
         <div className="integers">
           <button className="buttonInt" type="button" value="AC" onClick={dropValue}>AC</button>
