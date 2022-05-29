@@ -23,7 +23,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Live Link
 
- [Type this link](https://camilevahviraki.github.io/Math-magician-App/) tosee the quick demo of the project.
+ [Type this link](https://camilevahviraki.github.io/Math-magician-App/) to see the quick demo of the project.
 
 ## Authors
 
