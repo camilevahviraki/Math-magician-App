@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Calculator.css';
 import calculate from '../logic/calculate';
+import Header from './Header';
 
 export default function Calculator() {
   const [outputStr, setOutPutString] = useState('0');
@@ -8,6 +9,11 @@ export default function Calculator() {
   const [total, setTotal] = useState(null);
   const [next, setNext] = useState(null);
   const [operation, setOperation] = useState(null);
+  const [links] = useState([
+    { status: true, link: '../calculator' },
+    { status: false, link: '../' },
+    { status: false, link: '../quote' },
+  ]);
 
   const dropValue = (e) => {
     const X = e.target.value.toString();
@@ -15,7 +21,6 @@ export default function Calculator() {
     if (X === '-' || X === '+' || X === '÷' || X === 'x' || X === '%') {
       SetNextString(!nextString);
       setOperation(X);
-      setOutPutString('0');
     } else if ((X.match(/^[0-9]+$/) !== null && nextString === false) || X === '.') {
       if (total === null) {
         setTotal(X);
@@ -59,36 +64,39 @@ export default function Calculator() {
       setNext(null);
       setTotal(calculate(obj, X).total);
       SetNextString(false);
+      console.log('con', 'B');
     }
   };
 
   return (
     <div className="mainCalculator">
-      <div className="calculator">
-        <p className="screenClac">{outputStr}</p>
-        <div className="integers">
-          <button className="buttonInt" type="button" value="AC" onClick={dropValue}>AC</button>
-          <button className="buttonInt" type="button" value="+/-" onClick={dropValue}>+/-</button>
-          <button className="buttonInt" type="button" value="%" onClick={dropValue}>%</button>
-          <button className="buttonInt op" type="button" value="÷" onClick={dropValue}>÷</button>
-          <button className="buttonInt" type="button" value="7" onClick={dropValue}>7</button>
-          <button className="buttonInt" type="button" value="8" onClick={dropValue}>8</button>
-          <button className="buttonInt" type="button" value="9" onClick={dropValue}>9</button>
-          <button className="buttonInt op" type="button" value="x" onClick={dropValue}>x</button>
-          <button className="buttonInt" type="button" value="4" onClick={dropValue}>4</button>
-          <button className="buttonInt" type="button" value="5" onClick={dropValue}>5</button>
-          <button className="buttonInt" type="button" value="6" onClick={dropValue}>6</button>
-          <button className="buttonInt op" type="button" value="-" onClick={dropValue}>-</button>
-          <button className="buttonInt" type="button" value="1" onClick={dropValue}>1</button>
-          <button className="buttonInt" type="button" value="2" onClick={dropValue}>2</button>
-          <button className="buttonInt" type="button" value="3" onClick={dropValue}>3</button>
-          <button className="buttonInt op" type="button" value="+" onClick={dropValue}>+</button>
-
-        </div>
-        <div className="buttonsDown">
-          <button className="buttonInt" id="bigButton" type="button" value="0" onClick={dropValue}>0</button>
-          <button className="buttonInt" type="button" value="." onClick={dropValue}>.</button>
-          <button className="buttonInt op" type="button" value="=" onClick={dropValue}>=</button>
+      <Header obj={links} />
+      <div className="calcAndTilte">
+        <h2 className="h2Calc">Let do some maths</h2>
+        <div className="calculator">
+          <h3 className="logo">dropValue</h3>
+          <p className="screenClac">{outputStr}</p>
+          <div className="integers">
+            <button className="buttonInt" type="button" value="AC" onClick={dropValue}>AC</button>
+            <button className="buttonInt" type="button" value="+/-" onClick={dropValue}>+/-</button>
+            <button className="buttonInt" type="button" value="%" onClick={dropValue}>%</button>
+            <button className="buttonInt op" type="button" value="÷" onClick={dropValue}>÷</button>
+            <button className="buttonInt" type="button" value="7" onClick={dropValue}>7</button>
+            <button className="buttonInt" type="button" value="8" onClick={dropValue}>8</button>
+            <button className="buttonInt" type="button" value="9" onClick={dropValue}>9</button>
+            <button className="buttonInt op" type="button" value="x" onClick={dropValue}>x</button>
+            <button className="buttonInt" type="button" value="4" onClick={dropValue}>4</button>
+            <button className="buttonInt" type="button" value="5" onClick={dropValue}>5</button>
+            <button className="buttonInt" type="button" value="6" onClick={dropValue}>6</button>
+            <button className="buttonInt op" type="button" value="-" onClick={dropValue}>-</button>
+            <button className="buttonInt" type="button" value="1" onClick={dropValue}>1</button>
+            <button className="buttonInt" type="button" value="2" onClick={dropValue}>2</button>
+            <button className="buttonInt" type="button" value="3" onClick={dropValue}>3</button>
+            <button className="buttonInt op" type="button" value="+" onClick={dropValue}>+</button>
+            <button className="buttonInt" id="bigButton" type="button" value="0" onClick={dropValue}>0</button>
+            <button className="buttonInt" type="button" value="." onClick={dropValue}>.</button>
+            <button className="buttonInt op" type="button" value="=" onClick={dropValue}>=</button>
+          </div>
         </div>
       </div>
     </div>
