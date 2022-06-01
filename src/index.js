@@ -13,6 +13,7 @@ root.render(
       <Route path="calculator" element={<Calculator />} />
       <Route path="quote" element={<Quote />} />
       <Route path="/" element={<Home />} />
+      <Route path="Math-magician-app" element={<Home />} />
     </Routes>
   </BrowserRouter>,
 );

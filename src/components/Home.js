@@ -4,9 +4,9 @@ import '../styles/Home.css';
 
 function Home() {
   const [links] = useState([
-    { status: false, link: 'calculator' },
-    { status: true, link: '/' },
-    { status: false, link: '/quote' },
+    { status: false, link: '../calculator' },
+    { status: true, link: '../' },
+    { status: false, link: '../quote' },
   ]);
   return (
     <div className="home">
